@@ -2,14 +2,16 @@ flattenPackage <- function(project, tmpdir) {
   projectHome <- normalizePath(project)
   projectName <- basename(projectHome)
 
-  pkg.tmpdir <- tmpdir
   # pkg.tmpdir <- tempdir(check = TRUE)
+  pkg.tmpdir <- tmpdir
   pkg.tmpdirProject <- file.path(pkg.tmpdir, projectName)
   pkg.tmpdirProjectR <- file.path(pkg.tmpdir, projectName, "R")
   pkg.tmpdirProjectRtmp <- file.path(pkg.tmpdir, projectName, "Rtmp")
 
   if (dir.exists(pkg.tmpdirProject)) {
-    unlink(pkg.tmpdirProject, recursive = TRUE)
+    # unlink(pkg.tmpdirProject, recursive = TRUE)
+    filesList <- list.files(pkg.tmpdirProject, full.names = TRUE)
+    unlink(filesList, recursive = TRUE)
   }
   file.copy(projectHome, pkg.tmpdir, overwrite = TRUE, recursive = TRUE)
 
@@ -25,7 +27,7 @@ flattenPackage <- function(project, tmpdir) {
     file.rename(from, to)
   }
   unlink(pkg.tmpdirProjectRtmp, recursive = TRUE)
-  unlink(file.path(pkg.tmpdirProject, ".git"), recursive = TRUE)
+  # unlink(file.path(pkg.tmpdirProject, ".git"), recursive = TRUE)
 
   file_find_replace <- function(filepath, pattern, replacement, patternCriteria = "") {
     file_contents <- readLines(filepath, warn = FALSE)
