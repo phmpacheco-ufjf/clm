@@ -1,0 +1,6 @@
+source("./R/clm__summary.clm__createCoefficientsTable.R", local = environment())
+source("./R/clm__summary.clm__catCall.R", local = environment())
+source("./R/clm__summary.clm__catCoefficientsTable.R", local = environment())
+source("./R/clm__summary.clm__catSampleDesign.R", local = environment())
+source("./R/clm__summary.clm__catSigma.R", local = environment())
+source("./R/clm__summary.clm__catSigmaHat.R", local = environment())

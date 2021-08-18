@@ -1,0 +1,5 @@
+source("./R/cov_clm__getFittingFunction__fittingPML.R", local = environment())
+source("./R/cov_clm__getFittingFunction__fittingULSC.R", local = environment())
+source("./R/cov_clm__getFittingFunction__fittingGLSC2.R", local = environment())
+source("./R/cov_clm__getFittingFunction__fittingGLSC3.R", local = environment())
+source("./R/cov_clm__getFittingFunction__fittingGLSC4.R", local = environment())
