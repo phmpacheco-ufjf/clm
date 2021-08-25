@@ -13,7 +13,7 @@ The clm package is in its initial development stage and does not yet
 have a version available on CRAN.
 
 However, the development version of the package is now available for
-download and can be installed via the repository on github
+download and can be installed via the repository on
 [GitHub](https://github.com/) with:
 
 ``` r
