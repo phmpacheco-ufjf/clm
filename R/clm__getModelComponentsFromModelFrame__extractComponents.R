@@ -1,5 +1,5 @@
 extractComponents <- function(modelFrame, componentName) {
-  componentValue <- do.call(model.extract, list(frame = modelFrame$data, component = componentName))
+  componentValue <- do.call(stats::model.extract, list(frame = modelFrame$data, component = componentName))
 
   if (is.null(componentValue)) {
     if (componentName %in% c("weights", "stratum")) {

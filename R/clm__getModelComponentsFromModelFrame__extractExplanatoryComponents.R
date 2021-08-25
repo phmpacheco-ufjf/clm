@@ -1,6 +1,6 @@
 extractExplanatoryComponents <- function(modelFrame) {
-  componentValue <- if (!is.empty.model(modelFrame$terms)) {
-    tibble::as_tibble(do.call(model.matrix, list(object = modelFrame$terms, data = modelFrame$data)))
+  componentValue <- if (!stats::is.empty.model(modelFrame$terms)) {
+    tibble::as_tibble(do.call(stats::model.matrix, list(object = modelFrame$terms, data = modelFrame$data)))
   } else {
     tibble::as_tibble(matrix(, dim(modelFrame$data)[1], 0L))
   }

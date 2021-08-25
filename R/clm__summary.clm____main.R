@@ -1,14 +1,12 @@
 #' Summarise the results of 'clm' fit.
 #'
-#' @param fit A clm fitted model
-#'
+#' @param object A clm fitted model
+#' @param ... Additional params passed to summary
 #' @return Return NULL and print in terminal the results.
 #'
-#' @examples
-#' summary.clm(fit)
 #' @export
 #'
-summary.clm <- function(fit) {
+summary.clm <- function(object, ...) {
   coefficientsTable <- createCoefficientsTable(fit)
 
   catCall(fit)

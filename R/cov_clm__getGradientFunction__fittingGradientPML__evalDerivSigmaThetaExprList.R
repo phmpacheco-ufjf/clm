@@ -5,7 +5,7 @@ evalDerivSigmaThetaExprList <- function(derivativesExprList, sigmaThetaExprList,
 
   derivativesList <- lapply(derivativesExprList, function(expr) eval(expr, paramsList))
   derivSigmaThetaCombined <- sapply(derivativesList, function(expr) attr(expr, "gradient"))
-  derivSigmaThetaList <- setNames(
+  derivSigmaThetaList <- stats::setNames(
     split(derivSigmaThetaCombined, seq(nrow(derivSigmaThetaCombined))),
     sigmaThetaExprList$paramsNames
   )

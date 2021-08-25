@@ -11,12 +11,6 @@
 #'
 #' @return The fit model with class 'clm'.
 #'
-#' @examples
-#' fit <- clm(score ~ wave + ageg + ecacg + qualifg,
-#'   waves = wave, ids = id,
-#'   weights = weight, stratum = strata, cluster = cluster,
-#'   data = data, sigma = "exchangeable"
-#' )
 #' @export
 
 

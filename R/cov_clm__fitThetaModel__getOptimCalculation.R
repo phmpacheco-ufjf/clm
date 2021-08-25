@@ -1,5 +1,5 @@
 getOptimCalculation <- function(optimParams) {
-  optimResult <- do.call(optim, optimParams)
+  optimResult <- do.call(stats::optim, optimParams)
 
   return(optimResult)
 }

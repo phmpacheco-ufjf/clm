@@ -5,9 +5,6 @@
 #'
 #' @return Return NULL and print in terminal the sigmaThetaExpr.
 #'
-#' @examples
-#' # UCM
-#' sigmaThetaExpr_viewer("UCM", 5)
 #' @export
 
 sigmaThetaExpr_viewer <- function(sigmaThetaExpr, numWaves = NULL) {

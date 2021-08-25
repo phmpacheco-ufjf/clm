@@ -1,14 +1,13 @@
 #' Summarise the results of 'cov_clm' fit.
 #'
-#' @param fitTheta A clm.theta fitted model
+#' @param object A clm.theta fitted model
+#' @param ... Additional params passed to summary
 #'
 #' @return Return NULL and print in terminal the results.
 #'
-#' @examples
-#' summary.clm.theta(fitTheta)
 #' @export
 
-summary.clm.theta <- function(fitTheta) {
+summary.clm.theta <- function(object, ...) {
   thetaTable <- getThetaTable(fitTheta)
   optimTable <- getOptimTable(fitTheta)
 

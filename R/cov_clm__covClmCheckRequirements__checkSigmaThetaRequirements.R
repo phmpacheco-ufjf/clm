@@ -17,7 +17,7 @@ checkSigmaThetaRequirements <- function(sigmaTheta, fit) {
 
     if (!is.list(sigmaTheta$expr)) {
       stop("Invalid 'sigmaThetaExpr' argument. 'expr' list must be a list!")
-    } else if (!is(sigmaTheta$paramsNames, "character")) {
+    } else if (!methods::is(sigmaTheta$paramsNames, "character")) {
       stop("Invalid 'sigmaThetaExpr' argument. 'paramsNames' must be a character array!")
     }
 

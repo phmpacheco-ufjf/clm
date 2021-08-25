@@ -1,5 +1,5 @@
 checkOptimParamsRequirements <- function(optimParams) {
-  if (!is(optimParams, "list")) {
+  if (!methods::is(optimParams, "list")) {
     stop("Invalid 'optimParams' argument. 'OptimParams' must be a named list!")
   }
 
@@ -11,7 +11,7 @@ checkOptimParamsRequirements <- function(optimParams) {
     warning("'gr' will be ignored! Please, choose a 'fittingType' instead.")
   }
 
-  if (!is(optimParams[["par"]], "numeric")) {
+  if (!methods::is(optimParams[["par"]], "numeric")) {
     stop("Invalid 'optimParams' argument. 'par' must be numeric!")
   } else if (any(names(optimParams$par) == "")) {
     stop("Invalid 'optimParams' argument. All 'par' elements must be named or none should!")

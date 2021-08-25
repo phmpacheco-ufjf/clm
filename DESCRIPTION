@@ -1,5 +1,5 @@
 Package: clm
-Title: A package to deal with complex longitudinal survey data.
+Title: A package to deal with complex longitudinal survey data
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Pedro",
@@ -20,7 +20,9 @@ Imports:
     dplyr,
     knitr,
     magrittr,
+    methods,
     purrr,
     rlist,
+    stats,
     tibble,
     tidyr

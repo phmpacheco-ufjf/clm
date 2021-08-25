@@ -7,11 +7,6 @@
 #'
 #' @return The fit model with class 'clm.theta'.
 #'
-#' @examples
-#' fitTheta <- cov_clm(fit,
-#'   fittingType = "PML", sigmaThetaExpr = "UCM",
-#'   optimParams = list(par = c(7, 5))
-#' )
 #' @export
 
 cov_clm <- function(fit, fittingType, sigmaThetaExpr, optimParams) {
