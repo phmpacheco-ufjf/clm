@@ -1,6 +1,14 @@
+#' Summarise the results of 'clm' fit.
+#'
+#' @param fit A clm fitted model
+#'
+#' @return Return NULL and print in terminal the results.
+#'
+#' @examples
+#' summary.clm(fit)
+#' @export
+#'
 summary.clm <- function(fit) {
-  source("./R/clm__summary.clm____functions.R", local = environment())
-
   coefficientsTable <- createCoefficientsTable(fit)
 
   catCall(fit)

@@ -1,6 +1,4 @@
 getSigmaThetaExprList <- function(sigmaTheta, fit) {
-  source("./R/cov_clm__getSigmaThetaExprList____functions.R", local = environment())
-
   if (is.character(sigmaTheta)) {
     if (sigmaTheta == "UCM") {
       sigmaThetaExprList <- generateUCMSigmaThetaExprList(fit)

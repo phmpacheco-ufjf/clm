@@ -1,6 +1,4 @@
 fitThetaModel <- function(optimParams, sigmaThetaExprList, derivativesExprList, fittingType, fit) {
-  source("./R/cov_clm__fitThetaModel____functions.R", local = environment())
-
   fitTheta <- list()
   fitTheta$optim <- getOptimCalculation(optimParams)
   fitTheta$sigmaTheta <- getSigmaTheta(fitTheta$optim, sigmaThetaExprList)

@@ -1,6 +1,4 @@
-checkRequirements <- function(modelComponents, sigma) {
-  source("./R/clm__checkRequirements____functions.R", local = environment())
-
+clmCheckRequirements <- function(modelComponents, sigma) {
   checkResponseRequirements(modelComponents$response)
   checkExplanatoryRequirements(modelComponents$explanatory)
   checkWavesRequirements(modelComponents$waves)

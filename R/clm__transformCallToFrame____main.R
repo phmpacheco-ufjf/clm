@@ -1,6 +1,4 @@
 transformCallToFrame <- function(call) {
-  source("./R/clm__transformCallToFrame____functions.R", local = environment())
-
   matchedArgNames <- match(
     c("formula", "waves", "ids", "weights", "stratum", "cluster", "data"),
     names(call), 0L

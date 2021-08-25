@@ -1,6 +1,4 @@
 getModelComponentsFromModelFrame <- function(modelFrame) {
-  source("./R/clm__getModelComponentsFromModelFrame____functions.R", local = environment())
-
   components <- list(
     response = extractComponents(modelFrame, "response"),
     explanatory = extractExplanatoryComponents(modelFrame),

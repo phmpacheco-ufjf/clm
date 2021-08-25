@@ -1,12 +1,12 @@
 setWideModelComponentsToList <- function(wideModelComponents) {
-  # source("./R/clm__setWideModelComponentsToList____functions.R", local = environment())
-
   N <- dim(wideModelComponents$response)[1]
   T <- dim(wideModelComponents$response)[2]
   Q <- length(wideModelComponents$explanatory)
 
   individuals <- lapply(seq(N), function(i) list(i = i))
   names(individuals) <- paste0("individual_", seq(N))
+
+  rbindXVariables <- function(i) t(do.call(rbind, lapply(wideModelComponents$explanatory, function(x) x[i, ])))
 
   individuals <- mapply(function(i, yi, xi, wi, hi, ji) {
     within(i, {
@@ -18,11 +18,11 @@ setWideModelComponentsToList <- function(wideModelComponents) {
     })
   },
   individuals,
-  transpose(wideModelComponents$response),
-  sapply(seq(N), function(i) t(do.call(rbind, lapply(wideModelComponents$explanatory, function(x) x[i, ]))), simplify = FALSE),
-  transpose(wideModelComponents$weights),
-  transpose(wideModelComponents$stratum),
-  transpose(wideModelComponents$cluster),
+  purrr::transpose(wideModelComponents$response),
+  sapply(seq(N), rbindXVariables, simplify = FALSE),
+  purrr::transpose(wideModelComponents$weights),
+  purrr::transpose(wideModelComponents$stratum),
+  purrr::transpose(wideModelComponents$cluster),
   SIMPLIFY = FALSE
   )
 

@@ -1,6 +1,4 @@
 getGradientFunction <- function(derivativesExprList, sigmaThetaExprList, fit, fittingType) {
-  source("./R/cov_clm__getGradientFunction____functions.R", local = environment())
-
   if (fittingType == "PML") {
     gradientFunction <- fittingGradientPML(derivativesExprList, sigmaThetaExprList, fit)
   } else if (fittingType == "ULSC") {

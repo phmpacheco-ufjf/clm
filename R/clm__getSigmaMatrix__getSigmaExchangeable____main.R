@@ -1,7 +1,4 @@
 getSigmaExchangeable <- function(modelComponents) {
-  source("./R/clm__getSigmaMatrix__fitModelWithSigmaIdentity.R", local = environment())
-  source("./R/clm__getSigmaMatrix__rhoCalculation.R", local = environment())
-
   fit <- fitModelWithSigmaIdentity(modelComponents)
   rho <- rhoCalculation(fit)
 

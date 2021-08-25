@@ -1,6 +1,4 @@
 fitModel <- function(individuals, sigma) {
-  source("./R/clm__fitModel____functions.R", local = environment())
-
   fit <- fitInit(individuals, sigma)
 
   fit$coefficients <- fitBetaPML(fit)

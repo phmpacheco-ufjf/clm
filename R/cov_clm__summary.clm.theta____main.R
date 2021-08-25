@@ -1,6 +1,14 @@
-summary.clm.theta <- function(fitTheta) {
-  source("./R/cov_clm__summary.clm.theta____functions.R", local = environment())
+#' Summarise the results of 'cov_clm' fit.
+#'
+#' @param fitTheta A clm.theta fitted model
+#'
+#' @return Return NULL and print in terminal the results.
+#'
+#' @examples
+#' summary.clm.theta(fitTheta)
+#' @export
 
+summary.clm.theta <- function(fitTheta) {
   thetaTable <- getThetaTable(fitTheta)
   optimTable <- getOptimTable(fitTheta)
 

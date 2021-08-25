@@ -1,0 +1,26 @@
+Package: clm
+Title: A package to deal with complex longitudinal survey data.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Pedro",
+           family = "Pacheco",
+           role = c("aut", "cre"),
+           email = "pedrohmp36@gmail.com",
+           comment = c(ORCID = "0000-0003-4804-1576"))
+Description: A package to deal with complex longitudinal survey data. It combines
+    longitudinal methodology models with complex sampling design. It fits fixed
+    and random effects models and covariance structured models so far. It also
+    provides tools to perform statistical tests considering these specifications.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    knitr,
+    magrittr,
+    purrr,
+    rlist,
+    tibble,
+    tidyr

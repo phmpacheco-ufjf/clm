@@ -1,6 +1,4 @@
 addConfigToOptimParams <- function(optimParams, fittingFunction, gradientFunction, sigmaThetaExprList) {
-  source("./R/cov_clm__addConfigToOptimParams____functions.R", local = environment())
-
   optimParams$method <- addMethodIfMissing(optimParams)
   optimParams$fn <- fittingFunction
   optimParams$gr <- gradientFunction

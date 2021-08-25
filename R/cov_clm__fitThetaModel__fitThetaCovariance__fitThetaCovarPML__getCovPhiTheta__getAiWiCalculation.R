@@ -1,13 +1,13 @@
 getAiWiCalculation <- function(sigmaTheta, individuals, derivSigmaThetaList) {
   individuals <- individuals %>%
-    list.map(list.append(., zi = unlist(lapply(
+    rlist::list.map(rlist::list.append(., zi = unlist(lapply(
       derivSigmaThetaList,
       function(derivSigmaThetaj) {
         -t(resi) %*% solve(sigmaTheta) %*% derivSigmaThetaj %*% solve(sigmaTheta) %*% resi
       }
     )))) %>%
-    list.map(list.append(., ai = wi * zi)) %>%
-    list.select(ai, wi, hi, ji)
+    rlist::list.map(rlist::list.append(., ai = wi * zi)) %>%
+    rlist::list.select(ai, wi, hi, ji)
 
   return(individuals)
 }

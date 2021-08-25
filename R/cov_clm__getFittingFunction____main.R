@@ -1,6 +1,4 @@
 getFittingFunction <- function(fittingType, sigmaThetaExprList, fit) {
-  source("./R/cov_clm__getFittingFunction____functions.R", local = environment())
-
   if (fittingType == "PML") {
     fittingFunction <- fittingPML(sigmaThetaExprList, fit)
   } else if (fittingType == "ULSC") {

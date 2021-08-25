@@ -1,6 +1,4 @@
 getSigmaMatrix <- function(sigma, modelComponents, formula) {
-  source("./R/clm__getSigmaMatrix____functions.R", local = environment())
-
   if (is.character(sigma)) {
     if (sigma == "identity") {
       sigmaMatrix <- getSigmaIdentity(modelComponents)

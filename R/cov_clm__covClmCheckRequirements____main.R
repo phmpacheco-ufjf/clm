@@ -1,6 +1,4 @@
-checkRequirements <- function(fit, fittingType, sigmaTheta, optimParams) {
-  source("./R/cov_clm__checkRequirements____functions.R", local = environment())
-
+covClmCheckRequirements <- function(fit, fittingType, sigmaTheta, optimParams) {
   checkFitRequirements(fit)
   checkFittingTypeRequirements(fittingType)
   checkSigmaThetaRequirements(sigmaTheta, fit)

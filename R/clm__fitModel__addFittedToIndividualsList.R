@@ -1,6 +1,6 @@
 addFittedToIndividualsList <- function(fit) {
   individuals <- fit$individuals %>%
-    list.map(list.append(., mui = xi %*% fit$coefficients))
+    rlist::list.map(rlist::list.append(., mui = xi %*% fit$coefficients))
 
   return(individuals)
 }

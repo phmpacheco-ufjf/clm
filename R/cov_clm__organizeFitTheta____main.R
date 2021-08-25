@@ -1,6 +1,4 @@
 organizeFitTheta <- function(fitTheta, gofMeasures, call, sigmaThetaExpr) {
-  source("./R/cov_clm__organizeFitTheta____functions.R", local = environment())
-
   fitTheta$gofMeasures <- gofMeasures
   fitTheta$call <- call
 

@@ -1,5 +1,5 @@
 createCoefficientsTable <- function(fit) {
-  coefficientsTable <- tibble(
+  coefficientsTable <- tibble::tibble(
     "  " = rownames(fit$coefficients),
     "Estimate" = round(fit$coefficients, 2),
     "Std. Error" = round(fit$se, 2),

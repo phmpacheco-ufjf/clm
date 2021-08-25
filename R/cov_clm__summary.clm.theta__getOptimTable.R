@@ -1,5 +1,5 @@
 getOptimTable <- function(fitTheta) {
-  optimTable <- tibble(
+  optimTable <- tibble::tibble(
     "  " = fitTheta$sigmaThetaExpr$paramsNames,
     "Start Value" = fitTheta$optimParams$par,
     "Lower" = if ("lower" %in% names(fitTheta$optimParams)) fitTheta$optimParams$lower else "-",

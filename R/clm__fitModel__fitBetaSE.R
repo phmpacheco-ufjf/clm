@@ -1,14 +1,14 @@
 fitBetaSE <- function(fit) {
-  side_term <- list.map(fit$individuals, wi * t(xi) %*% solve(fit$sigma) %*% xi) %>%
+  side_term <- rlist::list.map(fit$individuals, wi * t(xi) %*% solve(fit$sigma) %*% xi) %>%
     Reduce("+", .) %>%
     solve(.)
 
   middle_term <- fit$individuals %>%
-    list.group(hi, ji) %>%
+    rlist::list.group(hi, ji) %>%
     lapply(., function(hii) {
-      lapply(hii, function(jii) list.map(jii, wi * t(xi) %*% solve(fit$sigma) %*% resi)) %>%
-        list.map(Reduce("+", .)) %>%
-        `attr<-`(., "mh", list.count(.)) %>%
+      lapply(hii, function(jii) rlist::list.map(jii, wi * t(xi) %*% solve(fit$sigma) %*% resi)) %>%
+        rlist::list.map(Reduce("+", .)) %>%
+        `attr<-`(., "mh", rlist::list.count(.)) %>%
         `attr<-`(., "Zh_bar", Reduce("+", .) / attr(., "mh")) %>%
         lapply(., function(Zhj) {
           (attr(., "mh") / (attr(., "mh") - 1)) * (Zhj - attr(., "Zh_bar")) %*% t(Zhj - attr(., "Zh_bar"))

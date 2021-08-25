@@ -1,8 +1,8 @@
 fitSigmaHat <- function(fit) {
   Sw <- fit$individuals %>%
-    list.map((sqrt(wi) * (yi - mui)) %*% t(sqrt(wi) * (yi - mui))) %>%
+    rlist::list.map((sqrt(wi) * (yi - mui)) %*% t(sqrt(wi) * (yi - mui))) %>%
     Reduce("+", .)
-  Sw <- (1 / list.map(fit$individuals, wi) %>% Reduce("+", .)) * Sw
+  Sw <- (1 / rlist::list.map(fit$individuals, wi) %>% Reduce("+", .)) * Sw
 
   return(Sw)
 }

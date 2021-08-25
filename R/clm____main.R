@@ -1,11 +1,31 @@
-clm <- function(formula, waves, ids, weights, stratum, cluster, data, sigma = "identity") {
-  source("./R/clm____functions.R", local = environment())
+#' Fit fixed and random effects longitudinal model.
+#'
+#' @param formula A formula
+#' @param waves a dataframe column or an array
+#' @param ids a dataframe column or an array
+#' @param weights a dataframe column or an array
+#' @param stratum a dataframe column or an array
+#' @param cluster a dataframe column or an array
+#' @param data A dataframe or tibble
+#' @param sigma A character or a square matrix
+#'
+#' @return The fit model with class 'clm'.
+#'
+#' @examples
+#' fit <- clm(score ~ wave + ageg + ecacg + qualifg,
+#'   waves = wave, ids = id,
+#'   weights = weight, stratum = strata, cluster = cluster,
+#'   data = data, sigma = "exchangeable"
+#' )
+#' @export
 
+
+clm <- function(formula, waves, ids, weights, stratum, cluster, data, sigma = "identity") {
   call <- match.call(expand.dots = FALSE) # Capture function call
   modelFrame <- transformCallToFrame(call)
 
   modelComponents <- getModelComponentsFromModelFrame(modelFrame)
-  checkRequirements(modelComponents, sigma)
+  clmCheckRequirements(modelComponents, sigma)
 
   sigma <- getSigmaMatrix(sigma, modelComponents)
 

@@ -1,19 +1,19 @@
 fitSigmaHatVar <- function(fit) {
   individuals <- fit$individuals %>%
-    list.map(list.append(., zi = wi * resi %*% t(resi))) %>%
-    list.select(wi, zi, hi, ji)
+    rlist::list.map(rlist::list.append(., zi = wi * resi %*% t(resi))) %>%
+    rlist::list.select(wi, zi, hi, ji)
 
-  zBar <- (list.flatten(list.select(individuals, zi)) %>% Reduce("+", .)) / fit$info$N
-  wBar <- (list.flatten(list.select(individuals, wi)) %>% Reduce("+", .)) / fit$info$N
+  zBar <- (rlist::list.flatten(rlist::list.select(individuals, zi)) %>% Reduce("+", .)) / fit$info$N
+  wBar <- (rlist::list.flatten(rlist::list.select(individuals, wi)) %>% Reduce("+", .)) / fit$info$N
 
   BVar <- individuals %>%
-    list.group(hi, ji) %>%
+    rlist::list.group(hi, ji) %>%
     lapply(., function(hii) {
       lapply(hii, function(jii) {
-        list.map(jii, (zi - ((zBar / wBar) * wi)) / wBar)
+        rlist::list.map(jii, (zi - ((zBar / wBar) * wi)) / wBar)
       }) %>%
-        list.map(Reduce("+", .)) %>%
-        `attr<-`(., "mh", list.count(.)) %>%
+        rlist::list.map(Reduce("+", .)) %>%
+        `attr<-`(., "mh", rlist::list.count(.)) %>%
         `attr<-`(., "BhBar", Reduce("+", .) / attr(., "mh")) %>%
         `attr<-`(., "BhBar", matrix(attr(., "BhBar")[lower.tri(attr(., "BhBar"), diag = TRUE)], ncol = 1)) %>%
         lapply(., function(Bhj) {

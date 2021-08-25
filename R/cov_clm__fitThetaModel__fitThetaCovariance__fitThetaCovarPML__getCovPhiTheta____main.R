@@ -1,20 +1,18 @@
 getCovPhiTheta <- function(fitTheta, fit, derivSigmaThetaList) {
-  source("./R/cov_clm__fitThetaModel__getAiWiCalculation.R", local = environment())
-
   individuals <- getAiWiCalculation(fitTheta$sigmaTheta, fit$individuals, derivSigmaThetaList)
 
   N <- length(individuals)
-  aBar <- (list.flatten(list.select(individuals, ai)) %>% Reduce("+", .)) / N
-  wBar <- (list.flatten(list.select(individuals, wi)) %>% Reduce("+", .)) / N
+  aBar <- (rlist::list.flatten(rlist::list.select(individuals, ai)) %>% Reduce("+", .)) / N
+  wBar <- (rlist::list.flatten(rlist::list.select(individuals, wi)) %>% Reduce("+", .)) / N
 
   BVar <- individuals %>%
-    list.group(hi, ji) %>%
+    rlist::list.group(hi, ji) %>%
     lapply(., function(hii) {
       lapply(hii, function(jii) {
-        list.map(jii, (ai - ((aBar / wBar) * wi)) / wBar)
+        rlist::list.map(jii, (ai - ((aBar / wBar) * wi)) / wBar)
       }) %>%
-        list.map(Reduce("+", .)) %>%
-        `attr<-`(., "mh", list.count(.)) %>%
+        rlist::list.map(Reduce("+", .)) %>%
+        `attr<-`(., "mh", rlist::list.count(.)) %>%
         `attr<-`(., "BhBar", Reduce("+", .) / attr(., "mh")) %>%
         `attr<-`(., "BhBar", matrix(attr(., "BhBar")[lower.tri(attr(., "BhBar"), diag = TRUE)], ncol = 1)) %>%
         lapply(., function(Bhj) {

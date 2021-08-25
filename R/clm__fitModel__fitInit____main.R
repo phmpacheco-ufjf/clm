@@ -1,6 +1,4 @@
 fitInit <- function(individuals, sigma) {
-  source("./R/clm__fitModel__styleSigma.R", local = environment())
-
   fit <- list()
   fit$info <- list(
     N = attr(individuals, "N"),

@@ -1,6 +1,4 @@
 getGFIgofGLSC4 <- function(fit, fitTheta) {
-  source("./R/cov_clm__fitThetaModel__getUMatrix.R", local = environment())
-
   UMatrix <- getUMatrix(fit)
 
   vechSw <- matrix(fit$sigmaHat[lower.tri(fit$sigmaHat, diag = TRUE)], ncol = 1)
