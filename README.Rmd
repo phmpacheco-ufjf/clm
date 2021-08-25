@@ -1,0 +1,66 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# clm
+
+A package to deal with complex longitudinal survey data. It combines
+longitudinal methodology models with complex sampling design. It fits fixed
+and random effects models and covariance structured models so far. It also
+provides tools to perform statistical tests considering these specifications.
+
+## Installation
+
+The clm package is in its initial development stage and does not yet have a version available on CRAN.
+
+However, the development version of the package is now available for download and can be installed via
+the repository on github [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("phmpacheco-ufjf/clm")
+```
+## Avaliable Functions
+
+There are a few major functions available for usage. Here's an example using BHPS survey data.
+
+First, we fit the fixed and random effects model considering the survey sampling design.
+The sigma argument can be: identity, exchangeable, autorregressive or a custom square matrix.
+
+```{r, results='asis'}
+library(clm)
+
+fit <- clm(
+  score ~ wave + ageg + ecacg + qualifg,
+  waves = wave, ids = id,
+  weights = weight, stratum = strata, cluster = cluster,
+  data = example_data, sigma = "exchangeable"
+)
+summary(fit)
+```
+
+Then, we fit the covariance structured model. But first, we must choose the covariance structure we want to fit.
+Here's an example for the Uniform Correlation Model - UCM:
+
+```{r, results='asis'}
+sigmaThetaExpr_viewer("UCM", 5)
+```
+
+Finally, we fit the model using our previous random effects fitted model.
+
+```{r, results='asis'}
+fitTheta <- cov_clm(fit,
+  fittingType = "PML", sigmaThetaExpr = "UCM",
+  optimParams = list(par = c(7, 5))
+)
+summary(fitTheta)
+```

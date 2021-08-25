@@ -7,13 +7,13 @@
 #' @export
 #'
 summary.clm <- function(object, ...) {
-  coefficientsTable <- createCoefficientsTable(fit)
+  coefficientsTable <- createCoefficientsTable(object)
 
-  catCall(fit)
-  catCoefficientsTable(coefficientsTable, fit)
-  catSampleDesign(fit)
-  catSigma(fit)
-  catSigmaHat(fit)
+  catCall(object)
+  catCoefficientsTable(coefficientsTable, object)
+  catSampleDesign(object)
+  catSigma(object)
+  catSigmaHat(object)
 
   return(invisible(NULL))
 }

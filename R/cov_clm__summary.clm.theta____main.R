@@ -8,15 +8,15 @@
 #' @export
 
 summary.clm.theta <- function(object, ...) {
-  thetaTable <- getThetaTable(fitTheta)
-  optimTable <- getOptimTable(fitTheta)
+  thetaTable <- getThetaTable(object)
+  optimTable <- getOptimTable(object)
 
-  catCall(fitTheta)
-  catFitTypes(fitTheta)
-  catFitResults(fitTheta, thetaTable)
-  catOptimDetails(fitTheta, optimTable)
-  catSigmaThetaMatrix(fitTheta)
-  catGoodnessOfFitMeasures(fitTheta)
+  catCall(object)
+  catFitTypes(object)
+  catFitResults(object, thetaTable)
+  catOptimDetails(object, optimTable)
+  catSigmaThetaMatrix(object)
+  catGoodnessOfFitMeasures(object)
 
   return(invisible(NULL))
 }
