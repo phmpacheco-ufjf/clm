@@ -36,7 +36,7 @@ There are a few major functions available for usage. Here's an example using BHP
 First, we fit the fixed and random effects model considering the survey sampling design.
 The sigma argument can be: identity, exchangeable, autorregressive or a custom square matrix.
 
-```{r, results='asis'}
+```{r}
 library(clm)
 
 fit <- clm(
@@ -51,13 +51,13 @@ summary(fit)
 Then, we fit the covariance structured model. But first, we must choose the covariance structure we want to fit.
 Here's an example for the Uniform Correlation Model - UCM:
 
-```{r, results='asis'}
+```{r}
 sigmaThetaExpr_viewer("UCM", 5)
 ```
 
 Finally, we fit the model using our previous random effects fitted model.
 
-```{r, results='asis'}
+```{r}
 fitTheta <- cov_clm(fit,
   fittingType = "PML", sigmaThetaExpr = "UCM",
   optimParams = list(par = c(7, 5))
